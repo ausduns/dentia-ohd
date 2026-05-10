@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Orchard Heights Dental</title>
+    <meta name="description" content="Contact Orchard Heights Dental in West Salem, OR. Call (503) 370-8787 or visit us at 675 Orchard Heights Rd NW, Suite 100, Salem, OR 97304.">
+    <link rel="icon" href="https://framerusercontent.com/images/v1ygPtUXsBDpWJxV8OL9wTmwG0.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="https://framerusercontent.com/images/7o3JdkL9uwLVSblnff29ZDoxj0.png" media="(prefers-color-scheme: dark)">
+    <style>
+        :root {
+            --white: #fff;
+            --light-blue: #f6f7ff;
+            --blue: #4041d1;
+            --dark: #11081c;
+            --gray: #5e646d;
+            --light-purple: #bcbcff;
+            --transparent: #fff0;
+            --muted: #a09ca4;
+            --border-light: #dddee5;
+            --radius-xs: 8px;
+            --radius-sm: 10px;
+            --radius-md: 20px;
+            --radius-lg: 60px;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition: 0.3s cubic-bezier(0.44, 0, 0.56, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--dark);
+            background: var(--white);
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        /* ── NAVIGATION ── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: transparent;
+            padding: 20px 0;
+        }
+
+        .nav-inner {
+            max-width: 1540px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            flex-shrink: 0;
+        }
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 10px 30px;
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links-wrapper a {
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--light-blue);
+            white-space: nowrap;
+            transition: color var(--transition);
+        }
+        .nav-links-wrapper a:hover {
+            color: var(--light-purple);
+        }
+
+        .nav-dropdown-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--light-blue);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-dropdown-btn svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 20px 30px;
+            border-radius: var(--radius-lg);
+            background: var(--light-blue);
+            border: 1px solid var(--light-blue);
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--dark);
+            white-space: nowrap;
+            transition: all var(--transition);
+        }
+        .nav-cta:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: var(--white);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .nav-mobile-toggle img {
+            width: 27px;
+            height: 16px;
+        }
+
+        /* ── HERO BANNER ── */
+        .hero {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 0 100px;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1540px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-text {
+            flex: 1;
+            max-width: 800px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        .hero-subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            width: 100%;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 80px;
+            font-weight: 400;
+            letter-spacing: -0.08em;
+            line-height: 1;
+            color: var(--white);
+            text-align: center;
+        }
+        .hero-body {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            max-width: 520px;
+            text-align: center;
+        }
+
+        /* ── CONTACT SECTION ── */
+        .contact-section {
+            padding: 100px 0 0;
+        }
+        .contact-inner {
+            max-width: 1540px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            gap: 70px;
+            align-items: center;
+        }
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .contact-text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 620px;
+        }
+        .contact-text-group .subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--blue);
+        }
+        .contact-text-group .title {
+            font-size: 44px;
+            font-weight: 400;
+            letter-spacing: -0.08em;
+            line-height: 1.1;
+            color: var(--dark);
+            max-width: 600px;
+        }
+        .contact-text-group .body {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--gray);
+        }
+        .contact-divider {
+            width: 100%;
+            max-width: 620px;
+            height: 1px;
+            background: var(--border-light);
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--gray);
+        }
+        .contact-item img {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .contact-item a {
+            color: var(--gray);
+            transition: color var(--transition);
+        }
+        .contact-item a:hover {
+            color: var(--blue);
+        }
+        .contact-map {
+            flex: 1;
+            max-width: 700px;
+            height: 500px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ── BOOKING SECTION ── */
+        .booking-section {
+            padding: 100px 0 0;
+        }
+        .booking-inner {
+            max-width: 1540px;
+            margin: 0 auto;
+            padding: 0 50px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .booking-decor {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            pointer-events: none;
+            z-index: 1;
+            top: 0;
+        }
+        .booking-decor.left {
+            left: 15px;
+        }
+        .booking-decor.right {
+            right: 15px;
+        }
+        .booking-decor img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .booking-header {
+            background: var(--blue);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            padding: 50px 50px 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+        .booking-header .subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        .booking-header .title {
+            font-size: 44px;
+            font-weight: 400;
+            letter-spacing: -0.08em;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .booking-header .body {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .booking-form-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 30px;
+        }
+        .booking-form-bg {
+            position: absolute;
+            inset: 0;
+            top: 0;
+            height: 65%;
+            background: var(--blue);
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .booking-form {
+            position: relative;
+            z-index: 2;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .booking-form .form-note {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--gray);
+        }
+        .form-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .form-field {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .form-field input {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid rgba(94, 100, 109, 0.2);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0;
+            color: var(--blue);
+            background: transparent;
+            outline: none;
+            transition: border-color var(--transition);
+        }
+        .form-field input::placeholder {
+            color: var(--gray);
+        }
+        .form-field input:focus {
+            border-color: var(--blue);
+        }
+        .form-submit-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+        .form-submit-row .form-field {
+            flex: 1;
+            min-width: 200px;
+        }
+        .btn-submit {
+            flex-shrink: 0;
+            padding: 22px;
+            background: var(--blue);
+            border: 1px solid var(--blue);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-submit:hover {
+            background: #3636b0;
+        }
+        .btn-submit img {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* ── SERVICES SECTION ── */
+        .services-section {
+            padding: 100px 0;
+        }
+        .services-inner {
+            max-width: 1540px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .services-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+        }
+        .services-top .subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--blue);
+            flex: 1;
+        }
+        .services-top .title {
+            font-size: 44px;
+            font-weight: 400;
+            letter-spacing: -0.08em;
+            line-height: 1.1;
+            color: var(--dark);
+            flex: 1;
+            min-width: 400px;
+        }
+        .services-top .btn-all {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            padding: 20px 30px;
+            border-radius: var(--radius-lg);
+            background: var(--blue);
+            border: 1px solid var(--blue);
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            white-space: nowrap;
+            transition: all var(--transition);
+        }
+        .services-top .btn-all:hover {
+            background: #3636b0;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            transition: box-shadow var(--transition);
+        }
+        .service-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .service-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-xs);
+            overflow: hidden;
+        }
+        .service-card-icon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .service-card-text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .service-card-text h3 {
+            font-size: 30px;
+            font-weight: 400;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            color: var(--dark);
+        }
+        .service-card-text p {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--gray);
+        }
+        .service-card-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 30px;
+            border-radius: var(--radius-lg);
+            background: var(--white);
+            border: 1px solid rgba(94, 100, 109, 0.2);
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--blue);
+            white-space: nowrap;
+            transition: all var(--transition);
+            align-self: flex-start;
+        }
+        .service-card-link:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: var(--white);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--dark);
+            padding: 100px 0 50px;
+        }
+        .footer-inner {
+            max-width: 1540px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 50px;
+        }
+        .footer-col-group {
+            display: flex;
+            gap: 50px;
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .footer-col h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--muted);
+            font-weight: 400;
+        }
+        .footer-col a {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--light-blue);
+            white-space: nowrap;
+            transition: color var(--transition);
+        }
+        .footer-col a:hover {
+            color: var(--light-purple);
+        }
+        .footer-social-cards {
+            display: flex;
+            gap: 8px;
+            max-width: 33%;
+            flex: 1;
+            flex-wrap: wrap;
+        }
+        .footer-social-card {
+            flex: 1;
+            min-width: 100px;
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            min-height: 170px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color var(--transition);
+            text-decoration: none;
+        }
+        .footer-social-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .footer-social-card span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--white);
+        }
+        .footer-social-card .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+        }
+        .footer-social-card .icon-circle img {
+            width: 24px;
+            height: 24px;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-bottom p {
+            font-size: 14px;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+            color: var(--muted);
+        }
+        .footer-bottom a {
+            color: var(--muted);
+            transition: color var(--transition);
+        }
+        .footer-bottom a:hover {
+            color: var(--light-purple);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1279px) {
+            .hero {
+                min-height: 450px;
+                padding: 140px 0 80px;
+            }
+            .hero-inner,
+            .contact-inner,
+            .services-inner,
+            .booking-inner,
+            .nav-inner,
+            .footer-inner {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .contact-inner {
+                gap: 50px;
+            }
+            .hero-title {
+                font-size: 72px;
+            }
+            .contact-text-group .title,
+            .booking-header .title,
+            .services-top .title {
+                font-size: 36px;
+            }
+            .service-card-text h3 {
+                font-size: 26px;
+            }
+            .contact-map {
+                height: auto;
+                align-self: stretch;
+            }
+            .services-top .title {
+                min-width: 300px;
+            }
+            .booking-decor {
+                width: 300px;
+                height: 300px;
+            }
+            .footer-nav {
+                gap: 30px;
+            }
+            .footer-col-group {
+                gap: 30px;
+            }
+            .footer-social-card {
+                min-height: 120px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .nav-links-wrapper {
+                display: none;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .nav-mobile-toggle {
+                display: block;
+            }
+            .hero {
+                min-height: unset;
+                padding: 120px 0 80px;
+            }
+            .hero-inner {
+                justify-content: center;
+            }
+            .hero-title {
+                font-size: 50px;
+            }
+            .contact-inner {
+                flex-direction: column;
+                gap: 50px;
+            }
+            .contact-info {
+                flex: none;
+                width: 100%;
+            }
+            .contact-text-group {
+                max-width: 550px;
+            }
+            .contact-divider {
+                max-width: unset;
+            }
+            .contact-map {
+                height: 350px;
+                max-width: 100%;
+                flex: none;
+                width: 100%;
+            }
+            .booking-header {
+                padding: 40px 20px;
+            }
+            .booking-form {
+                padding: 30px 20px;
+            }
+            .booking-form-wrapper {
+                padding: 0 20px;
+            }
+            .booking-decor {
+                display: none;
+            }
+            .form-row {
+                flex-direction: column;
+            }
+            .form-field {
+                width: 100%;
+            }
+            .form-submit-row {
+                flex-direction: column;
+                width: 100%;
+            }
+            .form-submit-row .form-field {
+                width: 100%;
+            }
+            .btn-submit {
+                width: 100%;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .service-card {
+                flex: 1 0 calc(50% - 8px);
+                min-width: 280px;
+            }
+            .services-top {
+                flex-direction: column;
+                gap: 20px;
+                max-width: 465px;
+            }
+            .services-top .title {
+                flex: none;
+                width: 100%;
+                min-width: unset;
+            }
+            .services-top .btn-all {
+                display: none;
+            }
+            .services-top .subtitle {
+                flex: none;
+            }
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .footer-nav {
+                flex-direction: column;
+                gap: 30px;
+                width: 100%;
+            }
+            .footer-col-group {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            .footer-col {
+                flex: 1;
+                min-width: 135px;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-col h4 {
+                text-align: center;
+            }
+            .footer-social-cards {
+                max-width: 100%;
+                width: 100%;
+                flex: none;
+            }
+            .footer-social-card {
+                flex: 1;
+                min-width: 100px;
+                min-height: 120px;
+                padding: 15px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+            .contact-text-group .title,
+            .booking-header .title {
+                font-size: 30px;
+            }
+            .service-card-text h3 {
+                font-size: 24px;
+            }
+            .booking-section {
+                padding: 80px 0 0;
+            }
+            .services-section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            .services-grid {
+                flex-direction: column;
+            }
+            .service-card {
+                flex: 1 0 100%;
+            }
+            .footer-social-cards {
+                flex-direction: row;
+            }
+            .footer-social-card {
+                min-height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ── NAVIGATION ── -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="./home2.html" class="nav-logo" aria-label="Home">
+                <img src="https://framerusercontent.com/images/NafeJntPk9Cf7IEgmwlyEySfeRk.svg" alt="Orchard Heights Dental" width="131" height="48">
+            </a>
+            <div class="nav-links-wrapper" id="navLinks">
+                <a href="./home2.html">Home</a>
+                <a href="./about2.html">About</a>
+                <a href="./services2.html">Services</a>
+                <a href="./dentists2.html">Team</a>
+                <a href="./pricing2.html">Membership</a>
+                <a href="./careers2.html">Careers</a>
+                <a href="./contact-us2.html">Contact</a>
+            </div>
+            <a href="./contact-us2.html" class="nav-cta">Schedule an Appointment</a>
+            <button class="nav-mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <img src="https://framerusercontent.com/images/17NUD61LAPorN7G9PhfWRGcjpc.svg" alt="Menu" width="27" height="16">
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── HERO BANNER ── -->
+    <section class="hero" id="banner">
+        <div class="hero-bg">
+            <img src="https://framerusercontent.com/images/F5TRNB4r52gU3JIbO6v6BZW7TE.png" alt="Background" width="1440" height="810" loading="eager">
+        </div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <p class="hero-subtitle">Contact Us</p>
+                <h1 class="hero-title">We're here for you!</h1>
+                <p class="hero-body">Reach out to us for appointments or any dental concerns. Your journey to a healthier, brighter smile starts with a simple message.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT INFO + MAP ── -->
+    <section class="contact-section">
+        <div class="contact-inner">
+            <div class="contact-info">
+                <div class="contact-text-group">
+                    <p class="subtitle">Get in Touch</p>
+                    <h2 class="title">We're committed to providing you with care and support.</h2>
+                    <p class="body">Whether you have questions about our services, need to schedule an appointment, or want to learn more about improving your oral health, we're here to help.</p>
+                </div>
+                <div class="contact-divider"></div>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <img src="https://framerusercontent.com/images/QNokjLV6Qg60sKicFqTfa1Soxo.svg" alt="Map pin icon" width="24" height="24" loading="lazy">
+                        <a href="https://www.google.com/maps?q=675+Orchard+Heights+Rd+NW+Suite+100+Salem+OR+97304" target="_blank" rel="noopener">675 Orchard Heights Rd NW, Suite 100, Salem, OR 97304</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="https://framerusercontent.com/images/G9vJqXdFuyt8tNT7uDiNMZiDwI.svg" alt="Phone icon" width="24" height="24" loading="lazy">
+                        <a href="tel:+15033708787">(503) 370-8787</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="https://framerusercontent.com/images/MCDmUf57qJa9BGYCjPMpAUlw.svg" alt="Mail icon" width="24" height="24" loading="lazy">
+                        <a href="mailto:info@orchardheightsdental.com">info@orchardheightsdental.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="https://framerusercontent.com/images/G9vJqXdFuyt8tNT7uDiNMZiDwI.svg" alt="Hours icon" width="24" height="24" loading="lazy">
+                        <span>Monday – Thursday: 8:00 AM – 5:00 PM<br>Friday – Sunday: Closed</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.3!2d-123.07!3d44.94!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54bfff4a5f0e4b0d%3A0x0!2s675+Orchard+Heights+Rd+NW+Suite+100%2C+Salem%2C+OR+97304!5e0!3m2!1sen!2sus!4v1700000000000" title="Orchard Heights Dental location" loading="lazy" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BOOKING FORM ── -->
+    <section class="booking-section">
+        <div class="booking-inner">
+            <div class="booking-decor left">
+                <img src="https://framerusercontent.com/images/4sNtc21zODwkpJNo4Zv7VEqXcnk.svg" alt="" width="412" height="412" aria-hidden="true">
+            </div>
+            <div class="booking-decor right">
+                <img src="https://framerusercontent.com/images/4sNtc21zODwkpJNo4Zv7VEqXcnk.svg" alt="" width="412" height="412" aria-hidden="true">
+            </div>
+            <div class="booking-header">
+                <p class="subtitle">Schedule an Appointment</p>
+                <h2 class="title">Come visit us and experience compassionate care.</h2>
+                <p class="body">Whether it is your first visit or you are a returning patient, our team is here to provide personalized care in a relaxed and friendly environment.</p>
+            </div>
+            <div class="booking-form-wrapper">
+                <div class="booking-form-bg"></div>
+                <form class="booking-form" id="bookingForm">
+                    <p class="form-note">Fill out the form below, and we'll get back to you as soon as possible.</p>
+                    <div class="form-row">
+                        <label class="form-field">
+                            <input type="text" required name="name" placeholder="FULL NAME *">
+                        </label>
+                        <label class="form-field">
+                            <input type="email" required name="email" placeholder="EMAIL *">
+                        </label>
+                        <label class="form-field">
+                            <input type="tel" required name="phone" placeholder="PHONE NUMBER *">
+                        </label>
+                        <label class="form-field">
+                            <input type="date" required name="date">
+                        </label>
+                    </div>
+                    <p style="font-size:13px;color:var(--gray);line-height:1.5;margin-top:-8px;">Please note: We do not accept OHP medical insurance.</p>
+                    <div class="form-submit-row">
+                        <!-- TODO: Connect this form to Formspree, EmailJS, or another form handler before launch -->
+                        <button type="submit" class="btn-submit" aria-label="Submit booking form">
+                            <img src="https://framerusercontent.com/images/ZJoGKeaTsLbbmJdVa1ci5AE43AI.svg" alt="Arrow" width="16" height="16">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4>Menu</h4>
+                    <a href="./home2.html">Home</a>
+                    <a href="./about2.html">About Us</a>
+                    <a href="./services2.html">Services</a>
+                    <a href="./pricing2.html">Membership</a>
+                    <a href="./contact-us2.html">Contact</a>
+                </div>
+                <div style="flex:1.2">
+                    <p style="font-size:22px;font-weight:600;color:#fff;margin-bottom:8px;letter-spacing:-.02em;">Orchard Heights Dental</p>
+                    <p style="font-size:15px;line-height:1.6;color:#a1a4af;max-width:320px;">Orchard Heights Dental is a warm, patient-first practice in West Salem dedicated to exceptional care in a welcoming environment.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <span style="font-size:12px;text-transform:uppercase;letter-spacing:-0.02em;color:var(--light-blue);line-height:1.6;">675 Orchard Heights Rd NW, Suite 100<br>Salem, OR 97304</span>
+                    <a href="tel:+15033708787">(503) 370-8787</a>
+                    <a href="mailto:info@orchardheightsdental.com">info@orchardheightsdental.com</a>
+                    <a href="./contact-us2.html" style="display:inline-flex;align-items:center;padding:14px 28px;border-radius:8px;background:var(--blue);color:#fff;font-size:15px;font-weight:500;margin-top:8px;transition:background 0.3s;">Schedule an Appointment</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Orchard Heights Dental. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── SCRIPTS ── -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        let menuOpen = false;
+
+        mobileMenuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '20px';
+                navLinks.style.right = '20px';
+                navLinks.style.background = 'rgba(17,8,28,0.95)';
+                navLinks.style.padding = '30px';
+                navLinks.style.borderRadius = '20px';
+                navLinks.style.gap = '20px';
+            } else {
+                navLinks.style.display = 'none';
+                navLinks.removeAttribute('style');
+            }
+        });
+
+        // Booking form — neutral placeholder (form is not connected)
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('This form still needs to be connected before launch.');
+        });
+    </script>
+</body>
+</html>

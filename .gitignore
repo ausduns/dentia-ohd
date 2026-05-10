@@ -1,0 +1,15 @@
+.DS_Store
+*.py
+*.pyc
+__pycache__/
+*.log
+task.md
+implementation_plan.md
+audit.py
+add_toggle.py
+add_toggle2.py
+inject_toggle.py
+inject_toggle2.py
+inject_toggle3.py
+test_regex.py
+sitemap_report.txt

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "backend-development": {
+      "source": "mrgoonie/claudekit-skills",
+      "sourceType": "github",
+      "computedHash": "19a6a72ddb96062c3edef801451bd721726dd571f7db221f0b4d83ad70aad114"
+    },
+    "valyu-best-practices": {
+      "source": "valyuai/skills",
+      "sourceType": "github",
+      "computedHash": "40d76de811b2082566424975ff18af7990b6000b144d4b6187486783b517099b"
+    }
+  }
+}
