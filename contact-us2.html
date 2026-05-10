@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orchard Heights Dental — West Salem, OR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --primary:#4041D1;--primary-hover:#3233b0;
+      --bg:#F6F7FF;--surface:#FFFFFF;--text:#11081C;--muted:#6B6B80;
+      --border:rgba(64,65,209,0.14);--shadow:0 4px 24px rgba(64,65,209,0.10);
+      --radius:20px;--radius-btn:60px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+    /* NAV */
+    .nav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 50px;max-width:1540px;margin:0 auto}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700;text-decoration:none;color:var(--text);position:relative;z-index:101}
+    .nav-logo img{width:40px;height:40px;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:4px;background:rgba(64,65,209,0.90);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-radius:var(--radius-btn);padding:10px 20px;position:relative;z-index:101}
+    .nav-links a,.nav-links button{font-size:13px;font-weight:500;text-decoration:none;color:rgba(255,255,255,0.78);padding:6px 14px;border-radius:30px;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:4px;transition:color 0.2s}
+    .nav-links a:hover,.nav-links button:hover,.nav-links a.active{color:#fff}
+    .nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:var(--radius-btn);background:var(--bg);color:var(--text);font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.2s,transform 0.15s;position:relative;z-index:101;white-space:nowrap;border:1px solid rgba(255,255,255,0.2)}
+    .nav-cta:hover{opacity:0.9;transform:translateY(-1px)}
+
+    /* PAGE */
+    .page-body{padding-top:100px}
+    .contact-header{text-align:center;padding:60px 50px 40px;max-width:860px;margin:0 auto}
+    .eyebrow{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--primary);margin-bottom:16px;display:block}
+    .contact-header h1{font-size:clamp(44px,6vw,72px);font-weight:800;line-height:1.0;letter-spacing:-0.03em;margin-bottom:20px}
+    .contact-header p{font-size:17px;color:var(--muted);line-height:1.65;max-width:520px;margin:0 auto}
+
+    /* GRID */
+    .contact-section{max-width:1200px;margin:0 auto;padding:20px 50px 80px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    @media(max-width:900px){.contact-section{grid-template-columns:1fr;padding:20px 24px 60px}.nav-wrap{padding:16px 20px}.contact-header{padding:48px 24px 32px}}
+
+    /* FORM CARD */
+    .form-card{background:var(--surface);border-radius:var(--radius);padding:44px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .form-card h2{font-size:26px;font-weight:700;margin-bottom:28px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+    @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+    .form-group{margin-bottom:18px}
+    .form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text)}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:12px;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary)}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:var(--muted)}
+    .form-group textarea{resize:none;height:120px}
+    .form-group select{appearance:none;cursor:pointer}
+    .btn-submit{width:100%;padding:16px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-btn);font-family:'Inter',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.15s;margin-top:4px}
+    .btn-submit:hover{background:var(--primary-hover);transform:translateY(-1px)}
+
+    /* INFO COL */
+    .info-col{display:flex;flex-direction:column;gap:28px}
+    .info-block h3{font-size:16px;font-weight:700;margin-bottom:14px}
+    .info-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+    .icon-wrap{width:36px;height:36px;border-radius:10px;background:rgba(64,65,209,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--primary)}
+    .info-row-text span{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);display:block;margin-bottom:2px}
+    .info-row-text a,.info-row-text p{font-size:14px;color:var(--text);text-decoration:none}
+    .info-row-text a:hover{color:var(--primary)}
+    .hours-table{width:100%;border-collapse:collapse}
+    .hours-table td{font-size:14px;padding:6px 0;color:var(--muted)}
+    .hours-table td:first-child{font-weight:600;color:var(--text);width:120px}
+    .map-card{border-radius:var(--radius);overflow:hidden;height:210px;flex-shrink:0;border:1px solid var(--border)}
+    .map-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.35);transition:filter 0.4s}
+    .map-card img:hover{filter:grayscale(0)}
+
+    /* FOOTER */
+    footer{background:#11081C;color:#fff;border-radius:40px 40px 0 0;padding:64px 50px 40px;margin-top:40px}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}footer{padding:48px 24px 32px}}
+    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+    .footer-brand{display:flex;flex-direction:column;gap:14px}
+    .footer-logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;text-decoration:none;color:#fff}
+    .footer-logo img{width:36px;height:36px;filter:brightness(0) invert(1)}
+    .footer-brand p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:260px}
+    .footer-social{display:flex;gap:10px;margin-top:4px}
+    .footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+    .footer-social a:hover{background:rgba(255,255,255,0.16)}
+    .footer-col h4{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:18px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+    .footer-col a{font-size:14px;color:rgba(255,255,255,0.62);text-decoration:none;transition:color 0.2s}
+    .footer-col a:hover{color:#fff}
+    .footer-label{font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;display:block;margin-bottom:2px}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,0.32)}
+    .footer-bottom a{color:rgba(255,255,255,0.32);text-decoration:none}
+    .footer-bottom a:hover{color:rgba(255,255,255,0.65)}
+    .footer-links{display:flex;gap:24px}
+  </style>
+<style>
+/* =========================
+   Dark mode — manual toggle only
+   Light is default. Dark only on html.dark
+   ========================= */
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark :root,
+html.dark body,
+html.dark {
+  --token-d253d752-8bed-4cd5-9acc-17a570f2985a: #0D0D14;
+  --token-4cc2a019-273b-4c12-ad15-cec2b68c0578: #16161F;
+  --token-07e322cc-a6fb-4efe-94f9-2b52a3205099: #6B6EF0;
+  --token-31c5f73c-6f68-4d23-870d-1386964c8868: #F0EFFF;
+}
+
+html.dark body {
+  background-color: #0D0D14 !important;
+  color: #9B9BAD !important;
+}
+
+html.dark p,
+html.dark li,
+html.dark .framer-text {
+  color: #9B9BAD !important;
+}
+
+html.dark h1, html.dark h2, html.dark h3,
+html.dark h4, html.dark h5, html.dark h6 {
+  color: #F0EFFF !important;
+}
+
+html.dark a { color: #6B6EF0 !important; }
+
+html.dark input, html.dark textarea, html.dark select {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #F0EFFF !important;
+  border-color: #2A2A38 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #9B9BAD !important;
+}
+
+html.dark hr { border-color: #2A2A38 !important; }
+
+html.dark footer {
+  background-color: #0a0a0f !important;
+  color: #FFFFFF !important;
+}
+
+html.dark footer a { color: #FFFFFF !important; }
+
+/* Icon sync */
+html.dark .icon-moon { display: none !important; }
+html.dark .icon-sun  { display: flex !important; }
+
+/* =============================================
+   ROUND 3 DARK MODE POLISH
+   ============================================= */
+
+/* --- Body text contrast boost --- */
+html.dark p,
+html.dark li,
+html.dark .framer-text,
+html.dark span:not([class*="accent"]):not([class*="label"]) {
+  color: #B8B8C8 !important;
+}
+
+/* --- Headings stay bright --- */
+html.dark h1, html.dark h2, html.dark h3,
+html.dark h4, html.dark h5, html.dark h6 {
+  color: #EEEEFF !important;
+}
+
+/* --- White image container backgrounds --- */
+html.dark [class*="card"] [class*="image"],
+html.dark [class*="team"] [class*="image"],
+html.dark [class*="dentist"] [class*="image"],
+html.dark [class*="doctor"] [class*="image"] {
+  background-color: #1A1A26 !important;
+  border: 1px solid #2A2A38 !important;
+}
+
+html.dark div[style*="background: rgb(255, 255, 255)"],
+html.dark div[style*="background: white"],
+html.dark div[style*="background-color: white"],
+html.dark div[style*="background-color: rgb(255, 255, 255)"],
+html.dark div[style*="background:#fff"],
+html.dark div[style*="background: #fff"] {
+  background-color: #1A1A26 !important;
+  border: 1px solid #2A2A38 !important;
+}
+
+/* --- Footer social icon boxes --- */
+html.dark footer div[style*="background"],
+html.dark footer [class*="social"],
+html.dark footer [class*="link-box"],
+html.dark footer [class*="icon-box"] {
+  background-color: #16161F !important;
+  border: 1px solid #2A2A38 !important;
+}
+
+html.dark footer div[style*="background: rgb(255"],
+html.dark footer div[style*="background: white"],
+html.dark footer div[style*="background-color: rgb(255"],
+html.dark footer div[style*="background: #f"],
+html.dark footer div[style*="background-color: #f"] {
+  background-color: #16161F !important;
+  border: 1px solid #2A2A38 !important;
+}
+
+/* --- CTA purple block text --- */
+html.dark [class*="cta"] p,
+html.dark [class*="cta"] span,
+html.dark [class*="cta"] h1,
+html.dark [class*="cta"] h2,
+html.dark [class*="cta"] h3,
+html.dark [class*="book"] p,
+html.dark [class*="book"] span,
+html.dark [class*="book"] h1,
+html.dark [class*="book"] h2,
+html.dark div[style*="background: rgb(102, 99, 233)"] p,
+html.dark div[style*="background: rgb(102, 99, 233)"] span,
+html.dark div[style*="background: rgb(102, 99, 233)"] h1,
+html.dark div[style*="background: rgb(102, 99, 233)"] h2,
+html.dark div[style*="background: rgb(102, 99, 233)"] h3 {
+  color: #FFFFFF !important;
+  font-weight: 500;
+}
+
+/* --- Sidebar / info cards --- */
+html.dark [class*="sidebar"],
+html.dark [class*="info-card"],
+html.dark [class*="job-info"],
+html.dark [class*="detail-card"] {
+  background-color: #16161F !important;
+  border: 1px solid #2A2A38 !important;
+  color: #B8B8C8 !important;
+}
+
+html.dark aside div[style*="background: rgb(255"],
+html.dark aside div[style*="background: white"],
+html.dark aside div[style*="background-color: white"] {
+  background-color: #16161F !important;
+  border: 1px solid #2A2A38 !important;
+}
+
+/* --- Accordion / FAQ --- */
+html.dark [class*="accordion"],
+html.dark [class*="faq"] {
+  background-color: #16161F !important;
+  border: 1px solid #2A2A38 !important;
+  color: #B8B8C8 !important;
+}
+
+html.dark [class*="accordion"] *,
+html.dark [class*="faq"] * {
+  color: #B8B8C8 !important;
+}
+
+html.dark [class*="accordion"][open],
+html.dark [class*="accordion"].open,
+html.dark [class*="accordion"].active {
+  background-color: #1E1E2E !important;
+}
+
+/* --- Tags / pills / badges --- */
+html.dark [class*="tag"],
+html.dark [class*="pill"],
+html.dark [class*="badge"],
+html.dark [class*="chip"] {
+  background-color: #1E1E2E !important;
+  border: 1px solid #3A3A52 !important;
+  color: #B8B8C8 !important;
+}
+
+/* --- Labels / numbered sections --- */
+html.dark [class*="label"],
+html.dark [class*="number"],
+html.dark [class*="index"],
+html.dark [class*="counter"] {
+  color: #6B6EF0 !important;
+  opacity: 1 !important;
+}
+
+/* --- Job listing rows --- */
+html.dark [class*="job"],
+html.dark [class*="listing"],
+html.dark [class*="position"] {
+  opacity: 1 !important;
+  color: #B8B8C8 !important;
+  border-color: #2A2A38 !important;
+}
+
+html.dark [class*="job"] *,
+html.dark [class*="listing"] *,
+html.dark [class*="position"] * {
+  opacity: 1 !important;
+}
+
+html.dark [class*="apply"],
+html.dark [class*="job"] a {
+  color: #6B6EF0 !important;
+  opacity: 1 !important;
+}
+
+/* --- Google Maps embed --- */
+html.dark iframe[src*="google.com/maps"],
+html.dark iframe[src*="maps.google"],
+html.dark [class*="map"] iframe,
+html.dark [class*="map"] {
+  filter: brightness(0.85) grayscale(0.2) !important;
+  border-radius: 12px;
+  border: 1px solid #2A2A38 !important;
+}
+
+/* --- Hero image brightness --- */
+html.dark [class*="hero"] img,
+html.dark [class*="banner"] img {
+  filter: brightness(0.78) !important;
+}
+
+/* --- Hero pill chips --- */
+html.dark [class*="hero"] [class*="tag"],
+html.dark [class*="hero"] [class*="chip"],
+html.dark [class*="hero"] [class*="pill"],
+html.dark [class*="hero"] [class*="badge"] {
+  background-color: rgba(22, 22, 31, 0.92) !important;
+  border: 1px solid #3A3A52 !important;
+  color: #E0E0F0 !important;
+}
+
+/* --- Pricing card --- */
+html.dark [class*="pricing"] [class*="button"],
+html.dark [class*="plan"] [class*="button"],
+html.dark [class*="price"] button {
+  background-color: #6B6EF0 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+html.dark [class*="pricing"] li,
+html.dark [class*="plan"] li,
+html.dark [class*="pricing"] p {
+  color: #B8B8C8 !important;
+  opacity: 1 !important;
+}
+
+/* --- Dentist / doctor portrait --- */
+html.dark [class*="doctor"] > img,
+html.dark [class*="portrait"] > img,
+html.dark [class*="dentist-profile"] img {
+  background-color: #1A1A26 !important;
+}
+
+/* --- Diagnoses / specialty cards --- */
+html.dark [class*="diagnos"],
+html.dark [class*="specialty"],
+html.dark [class*="expertise"] {
+  background-color: #16161F !important;
+  border: 1px solid #2A2A38 !important;
+  color: #B8B8C8 !important;
+}
+
+html.dark [class*="diagnos"] *,
+html.dark [class*="specialty"] *,
+html.dark [class*="expertise"] * {
+  color: #B8B8C8 !important;
+}
+
+/* --- Career details body copy --- */
+html.dark [class*="description"] p,
+html.dark [class*="description"] li,
+html.dark [class*="responsibilities"] li,
+html.dark [class*="qualifications"] li,
+html.dark [class*="job-body"] p,
+html.dark [class*="job-body"] li {
+  color: #C8C8DC !important;
+}
+
+html.dark [class*="description"] h2,
+html.dark [class*="description"] h3,
+html.dark [class*="responsibilities"] h2,
+html.dark [class*="responsibilities"] h3,
+html.dark [class*="qualifications"] h2,
+html.dark [class*="qualifications"] h3 {
+  color: #EEEEFF !important;
+}
+
+/* --- Toggle button in dark mode --- */
+html.dark #theme-toggle {
+  background: rgba(20,20,32,0.95) !important;
+  border-color: rgba(112,112,255,0.3) !important;
+  color: #F0EFFF !important;
+}
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div style="position:fixed;top:0;left:0;right:0;z-index:100;">
+    <div class="nav-wrap">
+      <a href="./home2.html" class="nav-logo">
+        <img src="https://framerusercontent.com/images/NafeJntPk9Cf7IEgmwlyEySfeRk.svg" alt="Dental">
+        <span>Dental</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./home2.html">Home</a>
+        <a href="./about2.html">About</a>
+        <a href="./services2.html">Services</a>
+        <a href="./dentists2.html">Dentists</a>
+        <a href="./pricing2.html">Pricing</a>
+        <button>All Pages <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></button>
+      </nav>
+            <a href="./contact-us2.html" class="nav-cta">Schedule a Visit</a>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="contact-header">
+      <span class="eyebrow">Get in touch</span>
+      <h1>We'd love to<br>hear from you.</h1>
+      <p>Whether you have a question, want to book an appointment, or just want to say hello — we'll get back to you quickly.</p>
+    </div>
+
+    <section class="contact-section">
+
+      <!-- Form -->
+      <div class="form-card">
+        <h2>Send us a message</h2>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Doe">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(503) 370-8787">
+          </div>
+          <div class="form-group">
+            <label>Service of Interest</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Preventive Care</option>
+              <option>Oral Surgery</option>
+              <option>Emergency Care</option>
+              <option>Orthodontics</option>
+              <option>Cosmetic Dentistry</option>
+              <option>Dental Repair</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>How can we help?</label>
+            <textarea placeholder="Tell us more about your needs..."></textarea>
+          </div>
+          <button type="button" class="btn-submit">Send message</button>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="info-col">
+        <div class="info-block">
+          <h3>Contact Information</h3>
+          <div class="info-row">
+            <div class="icon-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.15 3.4 2 2 0 0 1 3.12 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/></svg>
+            </div>
+            <div class="info-row-text"><span>Phone</span><a href="tel:5033708787">(503) 370-8787</a></div>
+          </div>
+          <div class="info-row">
+            <div class="icon-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="info-row-text"><span>Email</span><a href="mailto:hello@dental.com">hello@dental.com</a></div>
+          </div>
+          <div class="info-row">
+            <div class="icon-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="info-row-text"><span>Address</span><p>123 Dental Way, Salem, OR 97301</p></div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <h3>Opening Hours</h3>
+          <table class="hours-table">
+            <tr><td>Mon – Fri</td><td>8:00 AM – 6:00 PM</td></tr>
+            <tr><td>Saturday</td><td>9:00 AM – 2:00 PM</td></tr>
+            <tr><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+
+        <div class="map-card">
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800" alt="Map View">
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="./home2.html" class="footer-logo">
+          <img src="https://framerusercontent.com/images/NafeJntPk9Cf7IEgmwlyEySfeRk.svg" alt="Dental">
+          <span>Dental</span>
+        </a>
+        <p>Dental is a modern practice dedicated to exceptional care in a welcoming environment.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Telegram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+          <a href="mailto:hello@dental.com" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="./home2.html">Home</a></li>
+          <li><a href="./about2.html">About Us</a></li>
+          <li><a href="./services2.html">Services</a></li>
+          <li><a href="./dentists2.html">Team</a></li>
+          <li><a href="./pricing2.html">Membership</a></li>
+          <li><a href="./careers2.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="./service-details2.html">Preventive Care</a></li>
+          <li><a href="./service-details2.html">Oral Surgery</a></li>
+          <li><a href="./service-details2.html">Emergency Care</a></li>
+          <li><a href="./service-details2.html">Orthodontics</a></li>
+          <li><a href="./service-details2.html">Cosmetic Dentistry</a></li>
+          <li><a href="./service-details2.html">Dental Repair</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><span class="footer-label">Email</span><a href="mailto:hello@dental.com">hello@dental.com</a></li>
+          <li><span class="footer-label">Phone</span><a href="tel:5033708787">(503) 370-8787</a></li>
+          <li><span class="footer-label">Address</span><span style="font-size:14px;color:rgba(255,255,255,0.62);">123 Dental Way, Salem, OR 97301</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Orchard Heights Dental® All rights reserved. Designed by fourtwelve</span>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+      <style id="dark-inline-overrides">
+  /* Override any inline white/light backgrounds on html.dark */
+  html.dark [style*="background: rgb(255, 255, 255)"],
+  html.dark [style*="background-color: rgb(255, 255, 255)"],
+  html.dark [style*="background: white"],
+  html.dark [style*="background-color: white"],
+  html.dark [style*="background: #fff"],
+  html.dark [style*="background-color: #fff"],
+  html.dark [style*="background: #ffffff"],
+  html.dark [style*="background-color: #ffffff"] {
+    background-color: #16161F !important;
+  }
+
+  /* Override inline dark text colors (invisible on dark bg) */
+  html.dark [style*="color: rgb(17, 8, 28)"],
+  html.dark [style*="color: rgb(0, 0, 0)"],
+  html.dark [style*="color: #000"],
+  html.dark [style*="color: #11081C"] {
+    color: #B8B8C8 !important;
+  }
+
+  /* Override inline heading colors */
+  html.dark h1[style*="color"],
+  html.dark h2[style*="color"],
+  html.dark h3[style*="color"] {
+    color: #EEEEFF !important;
+  }
+
+  /* Fix ghosted rows — remove any sub-1 opacity in dark mode */
+  html.dark [style*="opacity: 0."] {
+    opacity: 1 !important;
+  }
+
+  /* Footer social cards — token-31c5f73c used as dark BG, overridden to #F0EFFF in dark mode; restore it */
+  html.dark footer a[style*="--token-31c5f73c-6f68-4d23-870d-1386964c8868"] {
+    background-color: #16161F !important;
+    border-color: #2A2A38 !important;
+  }
+  html.dark footer div[style*="--token-31c5f73c-6f68-4d23-870d-1386964c8868"] {
+    background-color: #16161F !important;
+    border-color: #2A2A38 !important;
+  }
+</style>
+
+<!-- ===== THEME TOGGLE ===== -->
+<div id="theme-toggle-fixed" style="position:fixed;top:22px;right:190px;z-index:2147483647;display:flex;align-items:center;pointer-events:auto;">
+  <button id="theme-toggle" aria-label="Toggle dark mode" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(64,65,209,0.25);background:rgba(246,247,255,0.95);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:#11081C;padding:0;flex-shrink:0;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+    <span class="icon-moon" style="display:flex;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </span>
+    <span class="icon-sun" style="display:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </span>
+  </button>
+</div>
+<script>
+  (function () {
+    const root = document.documentElement;
+
+    // Light is default. Only go dark if user previously chose it.
+    if (localStorage.getItem('theme') === 'dark') {
+      root.classList.add('dark');
+    }
+
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    function syncIcons() {
+      const dark = root.classList.contains('dark');
+      const moon = btn.querySelector('.icon-moon');
+      const sun  = btn.querySelector('.icon-sun');
+      if (moon) moon.style.display = dark ? 'none' : 'flex';
+      if (sun)  sun.style.display  = dark ? 'flex'  : 'none';
+      btn.style.background  = dark ? 'rgba(20,20,32,0.95)'   : 'rgba(246,247,255,0.95)';
+      btn.style.borderColor = dark ? 'rgba(112,112,255,0.3)' : 'rgba(64,65,209,0.25)';
+      btn.style.color       = dark ? '#F0EFFF' : '#11081C';
+    }
+
+    syncIcons();
+
+    btn.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+      syncIcons();
+    });
+  })();
+</script>
+<!-- ===== END THEME TOGGLE ===== -->
+
+
+
+
+
+
+
+
+
+
+
+<script id="orchard-nav-override">
+(function() {
+  var TARGET_LINKS = [
+    {text: 'Home',       href: './home2.html'},
+    {text: 'About',      href: './about2.html'},
+    {text: 'Services',   href: './services2.html'},
+    {text: 'Team',       href: './dentists2.html'},
+    {text: 'Membership', href: './pricing2.html'},
+    {text: 'Careers',    href: './careers2.html'},
+    {text: 'Contact',    href: './contact-us2.html'}
+  ];
+  var ACTIVE_HREF = './contact-us2.html';
+  var CLONED_INDICES = [5, 6];
+
+  function getNavLinkDivs(navEl) {
+    var all = Array.from(navEl.querySelectorAll('[data-framer-name="Nav Link"]'));
+    if (all.length === 0) return [];
+    var container = all[0].parentElement;
+    return Array.from(container.querySelectorAll(':scope > [data-framer-name="Nav Link"]'));
+  }
+
+  function setLinkText(div, text) {
+    var anchor = div.querySelector('a[href]');
+    if (!anchor) return;
+    var updated = false;
+    anchor.childNodes.forEach(function(node) {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+        node.textContent = text;
+        updated = true;
+      }
+    });
+    if (updated) return;
+    var p = div.querySelector('p, span');
+    if (p) {
+      p.childNodes.forEach(function(node) {
+        if (node.nodeType === Node.TEXT_NODE) { node.textContent = text; updated = true; }
+      });
+    }
+    if (!updated && !anchor.querySelector('svg, img')) {
+      anchor.textContent = text;
+    }
+  }
+
+  function syncClonedClasses(linkDivs) {
+    if (linkDivs.length < TARGET_LINKS.length) return;
+    var refDiv = linkDivs[4];
+    CLONED_INDICES.forEach(function(idx) {
+      var cloned = linkDivs[idx];
+      if (!cloned || !refDiv) return;
+      if (cloned.className !== refDiv.className) {
+        cloned.className = refDiv.className;
+      }
+      var refChildren = Array.from(refDiv.querySelectorAll('*'));
+      var clonedChildren = Array.from(cloned.querySelectorAll('*'));
+      refChildren.forEach(function(refChild, i) {
+        var clonedChild = clonedChildren[i];
+        if (clonedChild && clonedChild.className !== refChild.className) {
+          clonedChild.className = refChild.className;
+        }
+      });
+    });
+  }
+
+  // --- Purge Logic for 'All Pages' ---
+  function purgeAllPages(navEl) {
+    var all = Array.from(navEl.querySelectorAll('[data-framer-name="Nav Link"]'));
+    if (all.length === 0) return;
+    var container = all[0].parentElement;
+    
+    Array.from(container.children).forEach(function(child) {
+      var text = child.textContent.trim().toUpperCase();
+      if (text.indexOf('ALL PAGES') !== -1) {
+        child.style.setProperty('display', 'none', 'important');
+      }
+    });
+
+    var allTextEls = Array.from(navEl.querySelectorAll('p, span, .framer-text'));
+    allTextEls.forEach(function(el) {
+      if (el.textContent.trim().toUpperCase() === 'ALL PAGES') {
+        var target = el.closest('a') || el.closest('[data-framer-component-type="Dropdown"]') || el;
+        if (target !== navEl && !target.classList.contains('framer-13or8f') && !target.classList.contains('framer-1hnua3w')) {
+          target.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
+  function mutateNav(navEl) {
+    purgeAllPages(navEl);
+
+    var linkDivs = getNavLinkDivs(navEl);
+    if (linkDivs.length === 0) return false;
+    var container = linkDivs[0].parentElement;
+
+    TARGET_LINKS.forEach(function(target, idx) {
+      var isCurrent = (target.href === ACTIVE_HREF);
+      var div;
+
+      if (idx < linkDivs.length) {
+        div = linkDivs[idx];
+      } else {
+        div = linkDivs[linkDivs.length - 1].cloneNode(true);
+        container.appendChild(div);
+        linkDivs.push(div);
+      }
+
+      var anchor = div.querySelector('a[href]');
+      if (!anchor) return;
+      anchor.setAttribute('href', target.href);
+      if (isCurrent) {
+        anchor.setAttribute('data-framer-page-link-current', 'true');
+      } else {
+        anchor.removeAttribute('data-framer-page-link-current');
+      }
+      setLinkText(div, target.text);
+    });
+
+    var fresh = getNavLinkDivs(navEl);
+    if (fresh.length > TARGET_LINKS.length) {
+      fresh.slice(TARGET_LINKS.length).forEach(function(d) {
+        d.parentNode && d.parentNode.removeChild(d);
+      });
+    }
+
+    return true;
+  }
+
+  function isAlreadyPatched(navEl) {
+    purgeAllPages(navEl);
+    var divs = getNavLinkDivs(navEl);
+    if (divs.length !== TARGET_LINKS.length) return false;
+    for (var i = 0; i < TARGET_LINKS.length; i++) {
+      var a = divs[i].querySelector('a[href]');
+      if (!a || a.getAttribute('href') !== TARGET_LINKS[i].href) return false;
+    }
+    return true;
+  }
+
+  function allNavWrappers() {
+    return [
+      ...Array.from(document.querySelectorAll('.framer-13or8f[data-framer-name]')),
+      ...Array.from(document.querySelectorAll('.framer-1hnua3w[data-framer-name]'))
+    ];
+  }
+
+  // No hero text patch for this page
+
+  var _busy = false;
+  var _lastRun = 0;
+
+  function tryPatch() {
+    if (_busy) return;
+    var now = Date.now();
+    if (now - _lastRun < 150) return;
+    _lastRun = now;
+    _busy = true;
+    try {
+      allNavWrappers().forEach(function(nav) {
+        if (!isAlreadyPatched(nav)) {
+          mutateNav(nav);
+        } else {
+          syncClonedClasses(getNavLinkDivs(nav));
+        }
+      });
+      if (typeof patchHeroText === 'function') patchHeroText();
+    } catch(e) { /* silent */ } finally {
+      _busy = false;
+    }
+  }
+
+  var observer = new MutationObserver(function(mutations) {
+    var needsPatch = mutations.some(function(m) {
+      return m.type === 'childList' && m.addedNodes.length > 0;
+    });
+    var needsSync = mutations.some(function(m) {
+      return m.type === 'attributes' && m.attributeName === 'class';
+    });
+    if (needsPatch) setTimeout(tryPatch, 60);
+    else if (needsSync) setTimeout(function() {
+      try {
+        allNavWrappers().forEach(function(nav) {
+          syncClonedClasses(getNavLinkDivs(nav));
+        });
+      } catch(e) {}
+    }, 0);
+  });
+
+  function boot() {
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class'],
+      characterData: false
+    });
+    tryPatch();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(tryPatch, 200);
+    setTimeout(tryPatch, 800);
+    setTimeout(tryPatch, 2000);
+  });
+
+  var ticks = 0;
+  var poll = setInterval(function() {
+    tryPatch();
+    if (++ticks >= 20) clearInterval(poll);
+  }, 500);
+
+})();
+</script>
+
+</body>
+</html>
